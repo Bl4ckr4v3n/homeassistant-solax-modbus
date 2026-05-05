@@ -8441,6 +8441,20 @@ SENSOR_TYPES_MAIN: list[SolaXModbusSensorEntityDescription] = [
         internal=True,
         icon="mdi:dip-switch",
     ),
+    SolaxModbusNumberEntityDescription(
+        name="Active Power Limit",
+        key="active_power_limit",
+        allowedtypes=MIC | GEN2 | X1,
+        native_min_value=0,
+        native_max_value=100,
+        native_step=1,
+        native_unit_of_measurement=PERCENTAGE,
+        initvalue=100,
+        register=0x34F
+        register_data_type=REGISTER_U8H,
+        fmt="i",
+        suggested_display_precision=0,
+    ),
     SolaXModbusSensorEntityDescription(
         key="active_power_limit",
         register=0x351,
